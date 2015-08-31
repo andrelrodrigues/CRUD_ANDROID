@@ -11,5 +11,10 @@
     <string name="login_txtSenha">Senha:</string>
     <string name="login_BtnEntrar">Entrar</string>
     <string name="login_ckbConectdo">Manter Conectado?</string>
+    <!-- Validacoes -->
+    <string name="Login_valUsuario">Usuário Obrigatório</string>
+    <string name="Login_valSenha">Senha Obrigatória</string>
 
+    <!--Mensagens-->
+    <string name="Login_valErro">Login ou senha inválidos!</string>
 </resources>

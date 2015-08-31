@@ -41,7 +41,8 @@
             android:id="@+id/login_btEntrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_BtnEntrar" />
+            android:text="@string/login_BtnEntrar"
+            android:onClick="logar"/>
 
 
     </LinearLayout>

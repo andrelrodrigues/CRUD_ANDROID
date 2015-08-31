@@ -34,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public static class Usuarios {
-        private static final String TABELA = "usuarios";
+        public static final String TABELA = "usuarios";
         public static final String _ID = "_id";
         public static final String NOME = "nome";
         public static final String LOGIN = "login";
@@ -46,11 +46,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public static class Tarefas {
-        private static final String TABELA = "tarefas";
-        private static final String _ID = "_id";
-        private static final String TAREFA = "tarefa";
-        private static final String DT_CRIACAO = "dt_criacao";
-        private static final String DT_COMPLETADO = "dt_completado";
+        public static final String TABELA = "tarefas";
+        public static final String _ID = "_id";
+        public static final String TAREFA = "tarefa";
+        public static final String DT_CRIACAO = "dt_criacao";
+        public static final String DT_COMPLETADO = "dt_completado";
         public static final String[] COLUNAS = new String[]{
                 _ID, TAREFA, DT_CRIACAO, DT_COMPLETADO
         };
