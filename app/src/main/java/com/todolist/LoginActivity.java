@@ -1,11 +1,13 @@
 package com.todolist;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.todolist.dao.UsuarioDAO;
@@ -15,6 +17,9 @@ import com.todolist.util.Mensagem;
 public class LoginActivity extends ActionBarActivity {
     private EditText edtUsuario, edtSenha;
     UsuarioDAO helper;
+    private CheckBox ckbConectado;
+    private static final String MANTER_CONECTADO = "manter conectado";
+    private static final String PREFERENCE_NAME = "LoginActivityPreferences";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +27,13 @@ public class LoginActivity extends ActionBarActivity {
         setContentView(R.layout.activity_login);
         edtUsuario = (EditText) findViewById(R.id.login_edtUsuario);
         edtSenha = (EditText) findViewById(R.id.login_edtSenha);
+        ckbConectado = (CheckBox) findViewById(R.id.login_ckbConectado);
         helper = new UsuarioDAO(this);
-
+        SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
+        boolean conectado = preferences.getBoolean(MANTER_CONECTADO, false);
+        if (conectado) {
+            chamarMainActivity();
+        }
     }
 
     public void logar(View view) {
@@ -39,15 +49,25 @@ public class LoginActivity extends ActionBarActivity {
             edtSenha.setError(getString(R.string.Login_valSenha));
         }
         if (validacao) {
+
             //logar
             if (helper.logar(usuario, senha)) {
-                startActivity(new Intent(this, MainActivity.class));
-                finish();
+                //manter conectado
+                if ((ckbConectado.isChecked())) {
+                    SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putBoolean(MANTER_CONECTADO, true);
+                    editor.commit();
+                }
+
+                chamarMainActivity();
             } else {
                 //erro
-                Mensagem.Msg(this, String.valueOf(R.string.Login_valErro));
+                Mensagem.Msg(this, getString(R.string.Login_valErro));
             }
         }
+
     }
 
     @Override
@@ -70,5 +90,10 @@ public class LoginActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void chamarMainActivity() {
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }
