@@ -1,5 +1,6 @@
 package com.todolist;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -50,7 +51,8 @@ public class ListUsuariosActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.novo_user) {
+            startActivity(new Intent(this, CadUsuarioActivity.class));
             return true;
         }
 
