@@ -8,6 +8,7 @@
         android:id="@+id/usuario_lista_nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="10dp"/>
+        android:textSize="22sp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold|italic" />
 </LinearLayout>
