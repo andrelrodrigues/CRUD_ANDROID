@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="Tarefinhas" >
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -22,7 +22,14 @@
         </activity>
         <activity
             android:name=".CadUsuarioActivity"
-            android:label="@string/title_activity_cad_usuario" >
+            android:label="Cadastro" >
+        </activity>
+        <activity
+            android:name=".ListUsuariosActivity"
+            android:label="Lista de Usuários" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"></meta-data>
         </activity>
     </application>
 

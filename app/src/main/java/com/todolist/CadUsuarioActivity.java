@@ -107,7 +107,7 @@ public class CadUsuarioActivity extends ActionBarActivity {
                 break;
             case R.id.action_Menu_Sair:
                 finish();
-                startActivity(new Intent(this,MainActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
                 break;
 
 

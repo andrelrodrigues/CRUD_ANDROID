@@ -18,6 +18,7 @@ public class Usuario {
         this.nome = nome;
         this.login = login;
         this.senha = senha;
+
     }
 
     public Integer get_id() {

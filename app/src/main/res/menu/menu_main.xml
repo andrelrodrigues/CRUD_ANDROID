@@ -5,4 +5,8 @@
 
     <item android:id="@+id/cadastroUsuarios" android:title="Cadastro"
         android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/ListaUsuarios" android:title="Usuarios"
+        android:orderInCategory="100" app:showAsAction="never" />
+
 </menu>
