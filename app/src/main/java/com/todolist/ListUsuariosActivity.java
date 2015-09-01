@@ -1,39 +1,47 @@
 package com.todolist;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.todolist.adapter.UsuarioAdapter;
 import com.todolist.dao.UsuarioDAO;
 import com.todolist.model.Usuario;
+import com.todolist.util.Mensagem;
 
 import java.util.List;
 
 
-public class ListUsuariosActivity extends ActionBarActivity {
+public class ListUsuariosActivity extends ActionBarActivity implements AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
 
     private ListView lista;
     private List<Usuario> usuarioList;
     private UsuarioAdapter usuarioAdapter;
     private UsuarioDAO usuarioDAO;
-
+    private AlertDialog dialog;
+    private AlertDialog confirmacao;
+    int idposicao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_usuarios);
-
+        dialog = Mensagem.CriarAlertDialog(this);
+        confirmacao = Mensagem.CriarDialogC0nfirmacao(this);
         usuarioDAO = new UsuarioDAO(this);
         usuarioList = usuarioDAO.listarUsuarios();
         usuarioAdapter = new UsuarioAdapter(this, usuarioList);
 
         lista = (ListView) findViewById(R.id.lvUsuario);
         lista.setAdapter(usuarioAdapter);
-
+        lista.setOnItemClickListener(this);
     }
 
     @Override
@@ -58,4 +66,34 @@ public class ListUsuariosActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+@Override
+    public void onClick(DialogInterface dialog, int which) {
+        int id = usuarioList.get(idposicao).get_id();
+        switch (which) {
+            case 0:
+                Intent intent = new Intent(this, CadUsuarioActivity.class);
+                intent.putExtra("USUARIO_ID", id);
+                startActivity(intent);
+            case 1:
+                confirmacao.show();
+                break;
+            case DialogInterface.BUTTON_POSITIVE:
+                usuarioList.remove(idposicao);
+                usuarioDAO.removerUsuarios(id);
+                lista.invalidateViews();
+                break;
+            case DialogInterface.BUTTON_NEGATIVE:
+                confirmacao.dismiss();
+                break;
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        idposicao = position;
+        dialog.show();
+    }
+
+
 }

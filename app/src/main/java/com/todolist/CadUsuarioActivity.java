@@ -29,6 +29,16 @@ public class CadUsuarioActivity extends ActionBarActivity {
         edtlogin = (EditText) findViewById(R.id.usuario_edtLogin);
         edtsenha = (EditText) findViewById(R.id.usuario_edtSenha);
 
+        //edição
+        idusuario = getIntent().getIntExtra("USUARIO_ID",0);
+        if (idusuario>0){
+            Usuario model = usuarioDAO.buscarUsuarioPorID(idusuario);
+            edtnome.setText(model.getNome());
+            edtlogin.setText(model.getLogin());
+            edtsenha.setText(model.getSenha());
+            setTitle("Atualizar usuario");
+        }
+
     }
 
     public void onDestroy() {
@@ -87,9 +97,7 @@ public class CadUsuarioActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.cadastros, menu);
 
-        if (idusuario > 0) {
-            menu.findItem(R.id.action_Menu_Excluir).setVisible(true);
-        }
+
 
         return true;
     }

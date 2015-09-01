@@ -7,10 +7,7 @@
     <item android:id="@+id/action_Menu_Salvar" android:title="Salvar"
         android:orderInCategory="100" app:showAsAction="ifRoom|withText"
         />
-    <item android:id="@+id/action_Menu_Excluir" android:title="Excluir"
-        android:orderInCategory="100"
-        android:visible="false" app:showAsAction="ifRoom|withText"
-        />
+
     <item android:id="@+id/action_Menu_Sair" android:title="Sair"
         android:orderInCategory="100" app:showAsAction="never"
         />
