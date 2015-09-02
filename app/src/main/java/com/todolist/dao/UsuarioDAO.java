@@ -56,7 +56,7 @@ public class UsuarioDAO {
         valores.put(DatabaseHelper.Usuarios.LOGIN, usuario.getLogin());
         valores.put(DatabaseHelper.Usuarios.SENHA, usuario.getSenha());
 
-        if ((usuario.get_id() != null)) {
+        if ((usuario.get_id() != null )) {
             database.update(DatabaseHelper.Usuarios.TABELA, valores, "_id = ?", new String[]{usuario.get_id().toString()});
         }
         return getDatabase().insert(DatabaseHelper.Usuarios.TABELA, null, valores);

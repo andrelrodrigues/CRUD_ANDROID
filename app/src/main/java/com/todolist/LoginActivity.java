@@ -86,6 +86,13 @@ public class LoginActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Mensagem.addMsgConfirm(this, "Sair", "Deseja realmente sair?", R.drawable.abc_btn_radio_to_on_mtrl_015, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+
             return true;
         }
 
