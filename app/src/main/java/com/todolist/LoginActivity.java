@@ -1,5 +1,7 @@
 package com.todolist;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
@@ -86,12 +88,17 @@ public class LoginActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Mensagem.addMsgConfirm(this, "Sair", "Deseja realmente sair?", R.drawable.abc_btn_radio_to_on_mtrl_015, new View.OnClickListener() {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("Sair");
+            alert.setMessage("Voce deseja realmente Sair?");
+            alert.setPositiveButton("sim", new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(DialogInterface dialog, int which) {
                     finish();
                 }
             });
+            alert.setNegativeButton("não", null);
+            alert.show();
 
             return true;
         }

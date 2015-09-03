@@ -1,7 +1,9 @@
 package com.todolist;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
@@ -9,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Switch;
 
 import com.todolist.util.Mensagem;
@@ -44,12 +47,18 @@ public class MainActivity extends ActionBarActivity {
                 //return true;
                 break;
             case R.id.ListaSair:
-                Mensagem.addMsgConfirm(this, "Sair", "Deseja realmente sair?", R.drawable.abc_btn_radio_to_on_mtrl_015, new View.OnClickListener() {
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.setTitle("Sair");
+                alert.setMessage("Voce deseja realmente Sair?");
+                alert.setPositiveButton("sim", new OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(DialogInterface dialog, int which) {
                         finish();
                     }
                 });
+                alert.setNegativeButton("não", null);
+                alert.show();
+
                 break;
             case R.id.ListaLogout:
                 SharedPreferences preferences = getSharedPreferences("LoginActivityPreferences", Context.MODE_PRIVATE);
@@ -74,4 +83,5 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
