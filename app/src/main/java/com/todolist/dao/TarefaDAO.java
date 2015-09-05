@@ -57,9 +57,10 @@ public class TarefaDAO {
         valores.put(DatabaseHelper.Tarefas.DT_CRIACAO, tarefa.getDt_criacao());
         valores.put(DatabaseHelper.Tarefas.DT_COMPLETADO, tarefa.getDt_completado());
         if ((tarefa.get_id() != null)) {
-            database.update(DatabaseHelper.Tarefas.TABELA, valores, "_id = ?", new String[]{tarefa.get_id().toString()});
+            return database.update(DatabaseHelper.Tarefas.TABELA, valores, "_id = ?", new String[]{tarefa.get_id().toString()});
+        } else {
+            return getDatabase().insert(DatabaseHelper.Tarefas.TABELA, null, valores);
         }
-        return getDatabase().insert(DatabaseHelper.Tarefas.TABELA, null, valores);
     }
 
     public boolean removerTarefas(int id) {

@@ -6,20 +6,17 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Switch;
-import android.widget.TextView;
 
-import com.todolist.adapter.UsuarioAdapter;
-import com.todolist.dao.UsuarioDAO;
-import com.todolist.model.Usuario;
-import com.todolist.util.Mensagem;
+import com.todolist.adapter.TarefaAdapter;
+import com.todolist.dao.TarefaDAO;
+import com.todolist.model.Tarefa;
 
 import java.util.List;
 
@@ -27,21 +24,26 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity {
 
     private ListView lista;
-    private List<Usuario> usuarioList;
-    private UsuarioAdapter usuarioAdapter;
-    private UsuarioDAO usuarioDAO;
+    private List<Tarefa> tarefaList;
+    private TarefaAdapter tarefaAdapter;
+    private TarefaDAO tarefaDAO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1A237E")));
+
+
         LoginActivity lo = new LoginActivity();
-       // TextView txtuser = (TextView) findViewById(R.id.txtNome);
-        usuarioDAO = new UsuarioDAO(this);
-        usuarioList = usuarioDAO.listarUsuarios();
-        usuarioAdapter = new UsuarioAdapter(this, usuarioList);
-        lista = (ListView) findViewById(R.id.lvUsuario);
-        lista.setAdapter(usuarioAdapter);
-        //lista.setOnItemClickListener(this);
+        // TextView txtuser = (TextView) findViewById(R.id.txtNome);
+        tarefaDAO = new TarefaDAO(this);
+        tarefaList = tarefaDAO.listarTarefas();
+        tarefaAdapter = new TarefaAdapter(this, tarefaList);
+        lista = (ListView) findViewById(R.id.lvTarefa);
+        lista.setAdapter(tarefaAdapter);
+
     }
 
     @Override
@@ -65,6 +67,19 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(new Intent(this, ListUsuariosActivity.class));
                 //return true;
                 break;
+            case R.id.cadastroTarefa:
+                startActivity(new Intent(this, CadTarefaActivity.class));
+                break;
+            case R.id.ListaTarefa:
+                startActivity(new Intent(this, ListTarefaActivity.class));
+                break;
+            case R.id.ListaLogout:
+                SharedPreferences preferences = getSharedPreferences("LoginActivityPreferences", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.clear();
+                editor.commit();
+                startActivity(new Intent(this, LoginActivity.class));
+                break;
             case R.id.ListaSair:
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setTitle("Sair");
@@ -78,13 +93,6 @@ public class MainActivity extends ActionBarActivity {
                 alert.setNegativeButton("não", null);
                 alert.show();
 
-                break;
-            case R.id.ListaLogout:
-                SharedPreferences preferences = getSharedPreferences("LoginActivityPreferences", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.clear();
-                editor.commit();
-                startActivity(new Intent(this, LoginActivity.class));
                 break;
         }
 

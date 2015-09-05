@@ -19,4 +19,6 @@
     <string name="Login_valErro">Login ou senha inválidos!</string>
     <string name="title_activity_cad_usuario">CadUsuarioActivity</string>
     <string name="title_activity_list_usuarios">ListUsuariosActivity</string>
+    <string name="title_activity_cad_tarefa">CadTarefaActivity</string>
+    <string name="title_activity_list_tarefa">ListTarefaActivity</string>
 </resources>

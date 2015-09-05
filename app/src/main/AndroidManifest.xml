@@ -5,31 +5,50 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/tarefinhas"
-        android:label="Tarefinhas"
+        android:label="Tarefa'Z"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="Tarefinhas" >
+            android:label="Tarefa'Z" >
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="Tarefinhas" >
+            android:label="Tarefa'Z"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".CadUsuarioActivity"
             android:label="Cadastro" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".ListUsuariosActivity"
             android:label="Lista de Usuários" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"></meta-data>
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".CadTarefaActivity"
+            android:label="Nova Tarefa" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".ListTarefaActivity"
+            android:label="Tarefas" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
     </application>
 
