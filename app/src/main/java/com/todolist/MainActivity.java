@@ -12,22 +12,28 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.todolist.adapter.TarefaAdapter;
 import com.todolist.dao.TarefaDAO;
 import com.todolist.model.Tarefa;
+import com.todolist.util.Mensagem;
 
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
 
-    private ListView lista;
+
+private ListView lista;
     private List<Tarefa> tarefaList;
     private TarefaAdapter tarefaAdapter;
     private TarefaDAO tarefaDAO;
-
+    private AlertDialog dialog;
+    private AlertDialog confirmacao;
+    int idposicao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +44,14 @@ public class MainActivity extends ActionBarActivity {
 
         LoginActivity lo = new LoginActivity();
         // TextView txtuser = (TextView) findViewById(R.id.txtNome);
+        dialog = Mensagem.CriarAlertDialog(this);
+        confirmacao = Mensagem.CriarDialogC0nfirmacao(this);
         tarefaDAO = new TarefaDAO(this);
         tarefaList = tarefaDAO.listarTarefas();
         tarefaAdapter = new TarefaAdapter(this, tarefaList);
         lista = (ListView) findViewById(R.id.lvTarefa);
         lista.setAdapter(tarefaAdapter);
-
+        lista.setOnItemClickListener(this);
     }
 
     @Override
@@ -88,6 +96,7 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
+
                     }
                 });
                 alert.setNegativeButton("não", null);
@@ -110,5 +119,30 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void onClick(DialogInterface dialog, int which) {
+        int id = tarefaList.get(idposicao).get_id();
+        switch (which) {
+            case 0:
+                Intent intent = new Intent(this, CadTarefaActivity.class);
+                intent.putExtra("TAREFA_ID", id);
+                startActivity(intent);
+            case 1:
+                confirmacao.show();
+                break;
+            case DialogInterface.BUTTON_POSITIVE:
+                tarefaList.remove(idposicao);
+                tarefaDAO.removerTarefas(id);
+                lista.invalidateViews();
+                break;
+            case DialogInterface.BUTTON_NEGATIVE:
+                confirmacao.dismiss();
+                break;
+        }
+    }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        idposicao = position;
+        dialog.show();
+    }
 }
