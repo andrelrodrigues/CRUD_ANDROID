@@ -12,17 +12,36 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Switch;
+import android.widget.TextView;
 
+import com.todolist.adapter.UsuarioAdapter;
+import com.todolist.dao.UsuarioDAO;
+import com.todolist.model.Usuario;
 import com.todolist.util.Mensagem;
+
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    private ListView lista;
+    private List<Usuario> usuarioList;
+    private UsuarioAdapter usuarioAdapter;
+    private UsuarioDAO usuarioDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        LoginActivity lo = new LoginActivity();
+       // TextView txtuser = (TextView) findViewById(R.id.txtNome);
+        usuarioDAO = new UsuarioDAO(this);
+        usuarioList = usuarioDAO.listarUsuarios();
+        usuarioAdapter = new UsuarioAdapter(this, usuarioList);
+        lista = (ListView) findViewById(R.id.lvUsuario);
+        lista.setAdapter(usuarioAdapter);
+        //lista.setOnItemClickListener(this);
     }
 
     @Override

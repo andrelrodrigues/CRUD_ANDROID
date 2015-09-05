@@ -73,7 +73,7 @@ public class CadUsuarioActivity extends ActionBarActivity {
             usuario.setSenha(senha);
 
             //atualizacao
-            if (idusuario > 0) {
+            if (idusuario >0) {
                 usuario.set_id(idusuario);
             }
             long resultado = usuarioDAO.SalvarUsuario(usuario);

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.todolist.dao.UsuarioDAO;
 import com.todolist.util.Mensagem;
@@ -23,6 +24,8 @@ public class LoginActivity extends ActionBarActivity {
     private static final String MANTER_CONECTADO = "manter conectado";
     private static final String PREFERENCE_NAME = "LoginActivityPreferences";
 
+    public String login_nome;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,7 @@ public class LoginActivity extends ActionBarActivity {
         edtSenha = (EditText) findViewById(R.id.login_edtSenha);
         ckbConectado = (CheckBox) findViewById(R.id.login_ckbConectado);
         helper = new UsuarioDAO(this);
+
         SharedPreferences preferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         boolean conectado = preferences.getBoolean(MANTER_CONECTADO, false);
         if (conectado) {
@@ -58,11 +62,11 @@ public class LoginActivity extends ActionBarActivity {
                 if ((ckbConectado.isChecked())) {
                     SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-
                     editor.putBoolean(MANTER_CONECTADO, true);
                     editor.commit();
                 }
-
+                ///  login_nome = helper.buscarUsuarioPorNome(usuario);
+                ///    Toast.makeText(this, login_nome.toString(), Toast.LENGTH_LONG).show();
                 chamarMainActivity();
             } else {
                 //erro
@@ -107,6 +111,7 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     private void chamarMainActivity() {
+
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }

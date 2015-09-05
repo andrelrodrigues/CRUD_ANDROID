@@ -4,7 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.view.View;
+import android.widget.TextView;
 
+import com.todolist.R;
 import com.todolist.model.Usuario;
 
 import java.util.ArrayList;
@@ -34,7 +37,7 @@ public class UsuarioDAO {
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Usuarios.NOME)),
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Usuarios.LOGIN)),
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Usuarios.SENHA))
-      );
+        );
         return model;
     }
 
@@ -56,10 +59,11 @@ public class UsuarioDAO {
         valores.put(DatabaseHelper.Usuarios.LOGIN, usuario.getLogin());
         valores.put(DatabaseHelper.Usuarios.SENHA, usuario.getSenha());
 
-        if ((usuario.get_id() != null )) {
-            database.update(DatabaseHelper.Usuarios.TABELA, valores, "_id = ?", new String[]{usuario.get_id().toString()});
+        if ((usuario.get_id() != null)) {
+            return database.update(DatabaseHelper.Usuarios.TABELA, valores, "_id = ?", new String[]{usuario.get_id().toString()});
+        } else {
+            return getDatabase().insert(DatabaseHelper.Usuarios.TABELA, null, valores);
         }
-        return getDatabase().insert(DatabaseHelper.Usuarios.TABELA, null, valores);
     }
 
     public boolean removerUsuarios(int id) {
@@ -77,10 +81,13 @@ public class UsuarioDAO {
         }
         return null;
     }
-    public boolean logar(String usuario, String senha){
-        Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA, null,"LOGIN = ? AND SENHA = ?", new String[]{usuario,senha},null,null,null);
-        if(cursor.moveToFirst()){
+
+    /**/
+    public boolean logar(String usuario, String senha) {
+        Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA, null, "LOGIN = ? AND SENHA = ?", new String[]{usuario, senha}, null, null, null);
+        if (cursor.moveToFirst()) {
             return true;
+
         }
         return false;
     }

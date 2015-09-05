@@ -8,39 +8,45 @@
         android:padding="10dp"
         android:orientation="vertical">
 
-        <TextView
+        <!--TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nome:"
+            android:hint="Nome:"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"/-->
         <EditText
+            android:hint="Nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/usuario_edtNome"
+            android:layout_marginTop="10dp"
             />
-        <TextView
+        <!--TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login:"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"/-->
         <EditText
+            android:hint="Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/usuario_edtLogin"
+            android:layout_marginTop="10dp"
             />
-        <TextView
+        <!--TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Senha:"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"/-->
         <EditText
+            android:hint="Senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/usuario_edtSenha"
-            />
+            android:inputType="textPassword"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
