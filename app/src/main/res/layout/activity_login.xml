@@ -12,22 +12,24 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-        <TextView
+        <!--TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_txtUsuario" />
+            android:text="@string/login_txtUsuario" /-->
 
         <EditText
+            android:hint="Login ID"
             android:id="@+id/login_edtUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <TextView
+        <!--TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_txtSenha" />
+            android:text="@string/login_txtSenha" /-->
 
         <EditText
+            android:hint="Senha"
             android:id="@+id/login_edtSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,7 +45,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/login_BtnEntrar"
-            android:onClick="logar"/>
+            android:onClick="logar"
+            style="@android:style/Theme.Holo.Light"
+            android:background="#1A237E"
+            android:textColor="#fffff7ff" />
 
 
     </LinearLayout>
