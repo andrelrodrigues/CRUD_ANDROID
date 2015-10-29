@@ -1,5 +1,5 @@
 # sqlitecrud
-
+<h1>DISPONÍVEL NA GOOGLE PLAY!!!<br/><i>https://play.google.com/store/apps/details?id=com.todolist.sqlitecrud</i><br/></h1>
 CRUD com SQLite baseado nas aulas do Thiago Porto no youtube:
 
 https://www.youtube.com/user/waibtecnologia
