@@ -99,7 +99,7 @@ private ListView lista;
 
                     }
                 });
-                alert.setNegativeButton("não", null);
+                 alert.setNegativeButton("não", null);
                 alert.show();
 
                 break;
