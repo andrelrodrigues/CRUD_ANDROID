@@ -27,13 +27,14 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
 
 
-private ListView lista;
+    private ListView lista;
     private List<Tarefa> tarefaList;
     private TarefaAdapter tarefaAdapter;
     private TarefaDAO tarefaDAO;
     private AlertDialog dialog;
     private AlertDialog confirmacao;
     int idposicao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +100,7 @@ private ListView lista;
 
                     }
                 });
-                 alert.setNegativeButton("não", null);
+                alert.setNegativeButton("não", null);
                 alert.show();
 
                 break;
@@ -119,6 +120,7 @@ private ListView lista;
 
         return super.onOptionsItemSelected(item);
     }
+
     public void onClick(DialogInterface dialog, int which) {
         int id = tarefaList.get(idposicao).get_id();
         switch (which) {
