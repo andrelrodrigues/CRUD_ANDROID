@@ -1,4 +1,4 @@
-package com.todolist.adapter;
+package com.todolist.sqlitecrud.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,22 +8,23 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.todolist.R;
-import com.todolist.model.Tarefa;
-import com.todolist.model.Usuario;
+
+import com.todolist.sqlitecrud.R;
+import com.todolist.sqlitecrud.model.Usuario;
 
 import java.util.List;
 
 /**
- * Created by renancunha on 05/09/15.
+ * Created by renancunha on 31/08/15.
  */
-public class TarefaAdapter extends BaseAdapter {
-    private Context context;
-    private List<Tarefa> lista;
+public class UsuarioAdapter extends BaseAdapter {
 
-    public TarefaAdapter(Context ctx, List<Tarefa> tarefas) {
+    private Context context;
+    private List<Usuario> lista;
+
+    public UsuarioAdapter(Context ctx, List<Usuario> usuarios) {
         this.context = ctx;
-        this.lista = tarefas;
+        this.lista = usuarios;
     }
 
     @Override
@@ -43,13 +44,13 @@ public class TarefaAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        Tarefa tarefa = lista.get(position);
+        Usuario usuario = lista.get(position);
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.tarefas, null);
+            view = inflater.inflate(R.layout.usuarios, null);
         }
-        TextView txtarefa = (TextView) view.findViewById(R.id.tarefa_lista_nome);
-        txtarefa.setText(tarefa.getTarefa());
+        TextView txtnome = (TextView) view.findViewById(R.id.usuario_lista_nome);
+        txtnome.setText(usuario.getNome());
 
         return view;
     }

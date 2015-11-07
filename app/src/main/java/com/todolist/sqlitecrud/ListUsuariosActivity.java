@@ -1,4 +1,4 @@
-package com.todolist;
+package com.todolist.sqlitecrud;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,10 +13,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.todolist.adapter.UsuarioAdapter;
-import com.todolist.dao.UsuarioDAO;
-import com.todolist.model.Usuario;
-import com.todolist.util.Mensagem;
+
+import com.todolist.sqlitecrud.adapter.UsuarioAdapter;
+import com.todolist.sqlitecrud.dao.UsuarioDAO;
+import com.todolist.sqlitecrud.model.Usuario;
+import com.todolist.sqlitecrud.util.Mensagem;
 
 import java.util.List;
 

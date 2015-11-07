@@ -1,4 +1,4 @@
-package com.todolist.util;
+package com.todolist.sqlitecrud.util;
 
 import android.app.Activity;
 import android.app.AlertDialog;

@@ -1,4 +1,4 @@
-package com.todolist;
+package com.todolist.sqlitecrud;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,10 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.todolist.dao.UsuarioDAO;
-import com.todolist.util.Mensagem;
+
+import com.todolist.sqlitecrud.dao.UsuarioDAO;
+import com.todolist.sqlitecrud.util.Mensagem;
 
 
 public class LoginActivity extends ActionBarActivity {

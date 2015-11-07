@@ -1,14 +1,11 @@
-package com.todolist.dao;
+package com.todolist.sqlitecrud.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.view.View;
-import android.widget.TextView;
 
-import com.todolist.R;
-import com.todolist.model.Usuario;
+import com.todolist.sqlitecrud.model.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;

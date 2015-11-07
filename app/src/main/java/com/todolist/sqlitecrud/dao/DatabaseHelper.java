@@ -1,4 +1,4 @@
-package com.todolist.dao;
+package com.todolist.sqlitecrud.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

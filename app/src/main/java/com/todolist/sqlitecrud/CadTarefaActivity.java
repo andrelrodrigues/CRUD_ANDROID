@@ -1,4 +1,4 @@
-package com.todolist;
+package com.todolist.sqlitecrud;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,11 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.todolist.dao.TarefaDAO;
-import com.todolist.dao.TarefaDAO;
-import com.todolist.model.Tarefa;
-import com.todolist.model.Tarefa;
-import com.todolist.util.Mensagem;
+
+import com.todolist.sqlitecrud.dao.TarefaDAO;
+import com.todolist.sqlitecrud.model.Tarefa;
+import com.todolist.sqlitecrud.util.Mensagem;
 
 import java.util.Calendar;
 

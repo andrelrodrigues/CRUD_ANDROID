@@ -1,4 +1,4 @@
-package com.todolist.model;
+package com.todolist.sqlitecrud.model;
 
 /**
  * Created by renancunha on 30/08/15.

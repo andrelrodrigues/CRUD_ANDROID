@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TodoLIst.iml" filepath="$PROJECT_DIR$/TodoLIst.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sqlitecrud.iml" filepath="$PROJECT_DIR$/sqlitecrud.iml" />
     </modules>
   </component>
 </project>
