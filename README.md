@@ -1,6 +1,6 @@
 # sqlitecrud
 <h1>DISPONÍVEL NA GOOGLE PLAY!!!<br/></h1>
-[![Get it on Google Play!](https://developer.android.com/images/brand/en_generic_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=com.todolist.sqlitecrud)
+[![Get it on Google Play!](https://developer.android.com/images/brand/en_generic_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=com.todolist.tarefaz)
 <br/>
 CRUD com SQLite baseado nas aulas do Thiago Porto no youtube:
 
