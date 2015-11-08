@@ -1,4 +1,4 @@
-package com.todolist.sqlitecrud;
+package com.todolist.tarefaz;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

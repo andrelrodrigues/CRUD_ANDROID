@@ -1,12 +1,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    tools:context="com.todolist.sqlitecrud.LoginActivity"
+    tools:context="com.todolist.tarefaz.LoginActivity"
     android:background="#E8EAF6">
 
     <LinearLayout
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -48,9 +50,18 @@
             android:onClick="logar"
             style="@android:style/Theme.Holo.Light"
             android:background="#1A237E"
-            android:textColor="#fffff7ff" />
+            android:textColor="#fffff7ff"
+            android:layout_marginBottom="50dp"/>
 
-
+        <com.google.android.gms.ads.AdView
+           android:layout_marginBottom="1dp"
+            android:id="@+id/adView"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
     </LinearLayout>
 
 </ScrollView>

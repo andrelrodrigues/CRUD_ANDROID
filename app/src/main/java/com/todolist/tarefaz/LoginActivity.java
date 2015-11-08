@@ -1,4 +1,4 @@
-package com.todolist.sqlitecrud;
+package com.todolist.tarefaz;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -15,8 +15,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 
-import com.todolist.sqlitecrud.dao.UsuarioDAO;
-import com.todolist.sqlitecrud.util.Mensagem;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.todolist.tarefaz.dao.UsuarioDAO;
+import com.todolist.tarefaz.util.Mensagem;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -35,7 +37,9 @@ public class LoginActivity extends ActionBarActivity {
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1A237E")));
-
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         edtUsuario = (EditText) findViewById(R.id.login_edtUsuario);
         edtSenha = (EditText) findViewById(R.id.login_edtSenha);
         ckbConectado = (CheckBox) findViewById(R.id.login_ckbConectado);

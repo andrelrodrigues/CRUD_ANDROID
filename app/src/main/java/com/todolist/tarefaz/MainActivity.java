@@ -1,4 +1,4 @@
-package com.todolist.sqlitecrud;
+package com.todolist.tarefaz;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -16,13 +16,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.todolist.sqlitecrud.adapter.TarefaAdapter;
-import com.todolist.sqlitecrud.dao.TarefaDAO;
-import com.todolist.sqlitecrud.model.Tarefa;
-import com.todolist.sqlitecrud.util.Mensagem;
+import com.todolist.tarefaz.adapter.TarefaAdapter;
+import com.todolist.tarefaz.dao.TarefaDAO;
+import com.todolist.tarefaz.model.Tarefa;
+import com.todolist.tarefaz.util.Mensagem;
 
 import java.util.List;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
 
@@ -42,7 +44,9 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1A237E")));
 
-
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         LoginActivity lo = new LoginActivity();
         // TextView txtuser = (TextView) findViewById(R.id.txtNome);
         dialog = Mensagem.CriarAlertDialog(this);

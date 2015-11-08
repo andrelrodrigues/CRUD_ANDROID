@@ -1,4 +1,4 @@
-package com.todolist.sqlitecrud;
+package com.todolist.tarefaz;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,9 +10,9 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 
-import com.todolist.sqlitecrud.dao.UsuarioDAO;
-import com.todolist.sqlitecrud.model.Usuario;
-import com.todolist.sqlitecrud.util.Mensagem;
+import com.todolist.tarefaz.dao.UsuarioDAO;
+import com.todolist.tarefaz.model.Usuario;
+import com.todolist.tarefaz.util.Mensagem;
 
 
 public class CadUsuarioActivity extends ActionBarActivity {

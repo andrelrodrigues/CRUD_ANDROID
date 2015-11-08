@@ -1,4 +1,4 @@
-package com.todolist.sqlitecrud;
+package com.todolist.tarefaz;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,20 +14,20 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 
-import com.todolist.sqlitecrud.adapter.TarefaAdapter;
-import com.todolist.sqlitecrud.dao.TarefaDAO;
-import com.todolist.sqlitecrud.model.Tarefa;
-import com.todolist.sqlitecrud.util.Mensagem;
+import com.todolist.tarefaz.adapter.UsuarioAdapter;
+import com.todolist.tarefaz.dao.UsuarioDAO;
+import com.todolist.tarefaz.model.Usuario;
+import com.todolist.tarefaz.util.Mensagem;
 
 import java.util.List;
 
 
-public class ListTarefaActivity extends ActionBarActivity implements AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
+public class ListUsuariosActivity extends ActionBarActivity implements AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
 
     private ListView lista;
-    private List<Tarefa> tarefaList;
-    private TarefaAdapter tarefaAdapter;
-    private TarefaDAO tarefaDAO;
+    private List<Usuario> usuarioList;
+    private UsuarioAdapter usuarioAdapter;
+    private UsuarioDAO usuarioDAO;
     private AlertDialog dialog;
     private AlertDialog confirmacao;
     int idposicao;
@@ -35,25 +35,26 @@ public class ListTarefaActivity extends ActionBarActivity implements AdapterView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_tarefa);
+        setContentView(R.layout.activity_list_usuarios);
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1A237E")));
 
         dialog = Mensagem.CriarAlertDialog(this);
         confirmacao = Mensagem.CriarDialogC0nfirmacao(this);
-        tarefaDAO = new TarefaDAO(this);
-        tarefaList = tarefaDAO.listarTarefas();
-        tarefaAdapter = new TarefaAdapter(this, tarefaList);
-        lista = (ListView) findViewById(R.id.lvTarefa);
-        lista.setAdapter(tarefaAdapter);
+        usuarioDAO = new UsuarioDAO(this);
+        usuarioList = usuarioDAO.listarUsuarios();
+        usuarioAdapter = new UsuarioAdapter(this, usuarioList);
+
+        lista = (ListView) findViewById(R.id.lvUsuario);
+        lista.setAdapter(usuarioAdapter);
         lista.setOnItemClickListener(this);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_list_tarefa, menu);
+        getMenuInflater().inflate(R.menu.menu_list_usuarios, menu);
         return true;
     }
 
@@ -65,28 +66,28 @@ public class ListTarefaActivity extends ActionBarActivity implements AdapterView
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.novo_tarefa) {
-            startActivity(new Intent(this, CadTarefaActivity.class));
+        if (id == R.id.novo_user) {
+            startActivity(new Intent(this, CadUsuarioActivity.class));
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+@Override
     public void onClick(DialogInterface dialog, int which) {
-        int id = tarefaList.get(idposicao).get_id();
+        int id = usuarioList.get(idposicao).get_id();
         switch (which) {
             case 0:
-                Intent intent = new Intent(this, CadTarefaActivity.class);
-                intent.putExtra("TAREFA_ID", id);
+                Intent intent = new Intent(this, CadUsuarioActivity.class);
+                intent.putExtra("USUARIO_ID", id);
                 startActivity(intent);
             case 1:
                 confirmacao.show();
                 break;
             case DialogInterface.BUTTON_POSITIVE:
-                tarefaList.remove(idposicao);
-                tarefaDAO.removerTarefas(id);
+                usuarioList.remove(idposicao);
+                usuarioDAO.removerUsuarios(id);
                 lista.invalidateViews();
                 break;
             case DialogInterface.BUTTON_NEGATIVE:
@@ -100,5 +101,6 @@ public class ListTarefaActivity extends ActionBarActivity implements AdapterView
         idposicao = position;
         dialog.show();
     }
-}
 
+
+}

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.todolist.sqlitecrud" >
+    package="com.todolist.tarefaz">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/tarefinhas"
         android:label="Tarefa'Z"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+
         <activity
-            android:name=".MainActivity"
-            android:label="Tarefa'Z" >
-        </activity>
+            android:name="com.todolist.tarefaz.MainActivity"
+            android:label="Tarefa'Z"></activity>
         <activity
-            android:name=".LoginActivity"
-            android:label="Tarefa'Z"
-            >
+            android:name="com.todolist.tarefaz.LoginActivity"
+            android:label="Tarefa'Z">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,32 +23,32 @@
 
         </activity>
         <activity
-            android:name=".CadUsuarioActivity"
-            android:label="Cadastro" >
+            android:name="com.todolist.tarefaz.CadUsuarioActivity"
+            android:label="Cadastro">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.todolist.tarefaz.MainActivity" />
         </activity>
         <activity
-            android:name=".ListUsuariosActivity"
-            android:label="Lista de Usuários" >
+            android:name="com.todolist.tarefaz.ListUsuariosActivity"
+            android:label="Lista de Usuários">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.todolist.tarefaz.MainActivity" />
         </activity>
         <activity
-            android:name=".CadTarefaActivity"
-            android:label="Nova Tarefa" >
+            android:name="com.todolist.tarefaz.CadTarefaActivity"
+            android:label="Nova Tarefa">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.todolist.tarefaz.MainActivity" />
         </activity>
         <activity
-            android:name=".ListTarefaActivity"
-            android:label="Tarefas" >
+            android:name="com.todolist.tarefaz.ListTarefaActivity"
+            android:label="Tarefas">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.todolist.tarefaz.MainActivity" />
         </activity>
     </application>
 

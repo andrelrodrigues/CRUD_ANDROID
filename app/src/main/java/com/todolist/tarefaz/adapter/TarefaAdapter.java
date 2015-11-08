@@ -1,4 +1,4 @@
-package com.todolist.sqlitecrud.adapter;
+package com.todolist.tarefaz.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 
-import com.todolist.sqlitecrud.R;
-import com.todolist.sqlitecrud.model.Tarefa;
+import com.todolist.tarefaz.R;
+import com.todolist.tarefaz.model.Tarefa;
 
 import java.util.List;
 

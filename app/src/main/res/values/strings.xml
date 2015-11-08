@@ -5,6 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">LoginActivity</string>
 
+    <string name="banner_ad_unit_id">ca-app-pub-7961603748883633/1519260306</string>
 
     <!-- LOGIN -->
     <string name="login_txtUsuario">Usuário:</string>
