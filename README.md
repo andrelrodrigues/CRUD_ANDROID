@@ -6,7 +6,7 @@ CRUD com SQLite baseado nas aulas do Thiago Porto no youtube:
 
 https://www.youtube.com/user/waibtecnologia
 
-<h3> <c> BANCO </c> </h3>
+<h3> <c> BANCO </c>  </h3>
 <b> TAREFAS </b> <br />
 _id <br />
 nome <br />
